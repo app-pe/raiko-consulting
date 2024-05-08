@@ -1,0 +1,7 @@
+{
+    "menu":[
+        {"id_menu":"m1","nom_menu":"Inicio","nom_url":"index.html"},
+        {"id_menu":"m2","nom_menu":"Portafolio","nom_url":"about.html"}
+                 
+    ]
+}

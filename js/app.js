@@ -9,9 +9,11 @@ import { team } from './modules/team.js';
 import { pricing } from './modules/pricing.js';
 import { testimonial } from './modules/testimonial.js';
 import { blog } from './modules/blog.js';
+import { validarUrl } from './modules/header.js';
 
 
-var show_navbar = document.getElementById("show_navbar");
+
+//var show_navbar = document.getElementById("show_navbar");
 var show_footer_nav = document.getElementById("show_footer_nav");
 var show_footer_autor = document.getElementById("show_footer_autor");
 var show_carousel_lp = document.getElementById("show_carousel_lp");
@@ -23,8 +25,41 @@ var show_pricing = document.getElementById("show_pricing");
 var show_testimonial = document.getElementById("show_testimonial");
 var show_blog = document.getElementById("show_blog");
 
+//automatizar navbar de index.html
+const elementoListadiv = document.createElement('div');
+elementoListadiv.classList = 'container-fluid nav-bar p-0';
+console.log(elementoListadiv);
 
-show_navbar.innerHTML = navbar;
+const bodyy = document.querySelector('body');
+bodyy.appendChild(elementoListadiv);
+bodyy.insertBefore(elementoListadiv,bodyy.children[0]);
+console.log(bodyy.children);
+
+const elementoDiv2 = document.createElement('div');
+elementoDiv2.classList = 'container-lg p-0';
+elementoDiv2.id = 'show_navbar';
+elementoDiv2.innerHTML = navbar;
+
+const navbarDiv = document.querySelector('body .container-fluid');
+navbarDiv.appendChild(elementoDiv2);
+console.log(navbarDiv);
+
+//validar url 
+var url=window.location.pathname;
+validarUrl(url);
+/* ejemplo validar url
+var paginaActual="/tv40dias/index.html";
+console.log(paginaActual);
+var subcadena="index.html";
+console.log(paginaActual.indexOf(subcadena));
+console.log(paginaActual.substring(paginaActual.indexOf(subcadena))); 
+let nombrePaginaActual = paginaActual.substring(paginaActual.indexOf(subcadena));
+console.log(nombrePaginaActual);*/
+
+
+
+
+//show_navbar.innerHTML = navbar;
 show_footer_nav.innerHTML = footer_nav;
 show_footer_autor.innerHTML = footer_autor;
 show_carousel_lp.innerHTML = carousel_lp;
